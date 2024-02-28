@@ -19,3 +19,32 @@
 // });
 // });
 
+
+
+$(document).ready(function () {
+  $("#add").click(function () {
+    const inputName = $("#input").val();
+    const li = document.createElement("li");
+    li.textContent = inputName;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+
+    li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
+
+    $("#todos").append(li);
+
+    $(editBtn).click(function () {
+      let editInput = prompt("Edit your todo", li.textContent);
+      li.textContent = editInput;
+    });
+
+    $(deleteBtn).click(function () {
+      li.remove();
+    });
+  });
+});
